@@ -19,6 +19,11 @@ public class Match3 : MonoBehaviour
 
     System.Random random;
 
+    public void OnMouseDown()
+    {
+        
+    }
+
     void Start()
     {
         StartGame();  
