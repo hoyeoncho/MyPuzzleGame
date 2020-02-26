@@ -15,6 +15,7 @@ public class NodePiece : MonoBehaviour
 
     Image img;
 
+
     public void initialize(int v, Point p, Sprite piece)
     {
         img = GetComponent<Image>();

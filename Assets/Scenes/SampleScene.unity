@@ -375,9 +375,9 @@ MonoBehaviour:
     grid: {fileID: 0}
     rows:
     - row: 0000000000
-    - row: 0000010000
-    - row: 0000010000
-    - row: 0000010000
+    - row: 0000000000
+    - row: 0000000000
+    - row: 0000000000
     - row: 0000000000
   pieces:
   - {fileID: 1052439090246525548, guid: 15e386ac67b88f3479bee84e74a3f03b, type: 3}
