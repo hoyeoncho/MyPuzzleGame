@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class NodePiece : MonoBehaviour
+public class NodePiece : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     public int value;
     public Point index;
@@ -13,6 +14,7 @@ public class NodePiece : MonoBehaviour
     [HideInInspector]
     public RectTransform rect;
 
+    bool updating;
     Image img;
 
 
@@ -38,8 +40,27 @@ public class NodePiece : MonoBehaviour
         pos  = new Vector2(50 + (100 * index.x), -50 - (100 * index.y));
     }
 
+    public bool UpdatePiece()
+    {
+        return true;
+    }
+
     void UpdeateName()
     {
         transform.name = "Node [" + index.x + ", " + index.y + "]";
+    }
+
+    //public void OnPointerDown(PointerEventData eventData) : 버튼을 클릭/터치하는 순간 실행됨
+    //public void OnPointerUp(PointerEventData eventDate) : 버튼 클릭/터치를 떼는 순간 실행됨
+    
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        if (updating) return;
+        Debug.Log("Grab"+ transform.name);
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        Debug.Log("Let go" + transform.name);
     }
 }
