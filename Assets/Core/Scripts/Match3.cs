@@ -109,7 +109,8 @@ public class Match3 : MonoBehaviour
                 {
                     Point next = new Point(x, ny);
                     int nextVal = getValueAtPoint(next);
-                    if (nextVal == 0) continue;
+                    if (nextVal == 0) 
+                        continue;
                     if(nextVal != -1) // if we did not hit an end, but its not 0 then use this to fill the current hole
                     {
                         Node got = getNodeAtPoint(next);
@@ -128,30 +129,28 @@ public class Match3 : MonoBehaviour
                         NodePiece piece;
                         Point fallPnt = new Point(x, (-1- fills[x]));
 
-                        if(dead.Count >0)
+                        if(dead.Count > 0)
                         {
                             NodePiece revived = dead[0];
                             revived.gameObject.SetActive(true);
-                            revived.rect.anchoredPosition = getPositionFromPoint(fallPnt);
                             piece = revived;
-                            
+
                             dead.RemoveAt(0);
                         }
                         else
                         {
                             GameObject obj = Instantiate(nodePiece, gameBoard);
                             NodePiece n = obj.GetComponent<NodePiece>();
-                            RectTransform rect = obj.GetComponent<RectTransform>();
-                            rect.anchoredPosition = getPositionFromPoint(fallPnt);
                             piece = n;
                         }
 
-                        piece.initialize(newVal, p, pieces[newVal - 1]);
+                        piece.Initialize(newVal, p, pieces[newVal - 1]);
+                        piece.rect.anchoredPosition = getPositionFromPoint(fallPnt);
 
                         Node hole = getNodeAtPoint(p);
                         hole.SetPiece(piece);
                         ResetPiece(piece);
-                        fills[x]++; //얼마나 
+                        fills[x]++;
                     }
                     break;
                 }
@@ -240,7 +239,7 @@ public class Match3 : MonoBehaviour
                 NodePiece piece = p.GetComponent<NodePiece>();
                 RectTransform rect = p.GetComponent<RectTransform>();
                 rect.anchoredPosition = new Vector2(50 + (100 * x), -50 - (100 * y));
-                piece.initialize(val, new Point(x, y), pieces[val - 1]);
+                piece.Initialize(val, new Point(x, y), pieces[val - 1]);
                 node.SetPiece(piece);
                 
             }
@@ -280,10 +279,9 @@ public class Match3 : MonoBehaviour
     void KillPiece(Point p)
     {
         List<KilledPiece> available = new List<KilledPiece>();
-        for(int i=0; i< killed.Count;i++)
-        {
-            if (killed[i].falling) available.Add(killed[i]);
-        }
+        for (int i = 0; i < killed.Count; i++)
+            if (!killed[i].falling) available.Add(killed[i]);
+
         KilledPiece set = null;
         if (available.Count > 0)
             set = available[0];
@@ -294,6 +292,7 @@ public class Match3 : MonoBehaviour
             set = kPiece;
             killed.Add(kPiece);
         }
+
         int val = getValueAtPoint(p) - 1;
         if (set != null && val >= 0 && val < pieces.Length)
             set.Initialize(pieces[val], getPositionFromPoint(p));

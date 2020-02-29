@@ -18,7 +18,7 @@ public class NodePiece : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     Image img;
 
 
-    public void initialize(int v, Point p, Sprite piece)
+    public void Initialize(int v, Point p, Sprite piece)
     {
         img = GetComponent<Image>();
         rect = GetComponent<RectTransform>();
