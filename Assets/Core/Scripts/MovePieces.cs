@@ -42,7 +42,32 @@ public class MovePieces : MonoBehaviour
             }
             newIndex.add(add);
 
-            //if(!newIndex)
+            Vector2 pos = game.getPositionFromPoint(moving.index);
+            if (!newIndex.Equals(moving.index))
+                pos += Point.mult(add, 16).ToVector();
+            moving.MovePositionTo(pos);
         }
+    }
+
+    public void  MovePiece(NodePiece piece)
+    {
+        if(moving != null)
+        {
+            return;
+        }
+        moving = piece;
+        mouseStart = Input.mousePosition;
+    }
+
+    public void DropPiece()
+    {
+        if (moving == null) return;
+        Debug.Log("Dropped");
+        //if(newIndex.Equals(moving.index))
+        //    moving.ResetPosition
+        //Flip the pieces around int the game board
+        //else 
+        //Reset the piece back to origin spot
+        moving = null;
     }
 }
