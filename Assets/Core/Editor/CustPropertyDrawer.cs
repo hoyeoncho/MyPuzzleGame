@@ -5,8 +5,8 @@ using System.Collections;
 // 이 부분은 에디터 건드는건데 밑에있는 숫자중 14,9는 가로세로 말하는거고.. 18f가 왜 나오는거지? 
 // 저거 18 변경하면서 인스펙터창 보니까 체크박스 위아래 간격임 ㅋ
 [CustomPropertyDrawer(typeof(ArrayLayout))]
-public class CustPropertyDrawer : PropertyDrawer {
-
+public class CustPropertyDrawer : PropertyDrawer 
+{
 	public override void OnGUI(Rect position,SerializedProperty property,GUIContent label){
 		EditorGUI.PrefixLabel(position,label);
 		Rect newposition = position;

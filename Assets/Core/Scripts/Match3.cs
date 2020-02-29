@@ -74,7 +74,6 @@ public class Match3 : MonoBehaviour
                         remove.Add(val);
                     setValueAtPoint(p, newValue(ref remove));
                 }
-
             }
         }
     }
@@ -264,6 +263,7 @@ public class Match3 : MonoBehaviour
     {
         return new Vector2(50 + (100 * p.x), -50 - (100 * p.y));
     }
+
 }
 
 [System.Serializable]
