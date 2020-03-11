@@ -372,7 +372,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 72.2, y: -41.8}
+  m_AnchoredPosition: {x: 72.20001, y: -41.80005}
   m_SizeDelta: {x: 103.9, y: 57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &476938099
@@ -763,6 +763,7 @@ GameObject:
   - component: {fileID: 843468366}
   - component: {fileID: 843468368}
   - component: {fileID: 843468367}
+  - component: {fileID: 843468369}
   m_Layer: 5
   m_Name: GameBoard
   m_TagString: Untagged
@@ -825,6 +826,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 843468365}
   m_CullTransparentMesh: 0
+--- !u!114 &843468369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843468365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 750c4ecf27d95df4d8232a0f79321f18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1099750350
 GameObject:
   m_ObjectHideFlags: 0
@@ -1507,8 +1520,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -19.257812, y: -22}
-  m_SizeDelta: {x: 38, y: 44}
+  m_AnchoredPosition: {x: -38.257, y: -44}
+  m_SizeDelta: {x: 76, y: 88}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1928481825
 MonoBehaviour:
