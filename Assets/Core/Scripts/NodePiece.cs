@@ -16,7 +16,7 @@ public class NodePiece : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     bool updating;
     Image img;
-
+    
 
     public void Initialize(int v, Point p, Sprite piece)
     {
@@ -42,7 +42,8 @@ public class NodePiece : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void MovePositionTo(Vector2 move)
     {
-        rect.anchoredPosition = Vector2.Lerp(rect.anchoredPosition, move, Time.deltaTime * 25f);
+        rect.anchoredPosition = Vector2.Lerp(rect.anchoredPosition, move, Time.deltaTime * 10f); 
+        // 해당함수 마지막 인자 => 전체적인 렉트이동속도 
     }
 
     public void MovePosition(Vector2 move)

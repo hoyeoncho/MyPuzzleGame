@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MovePieces : MonoBehaviour
 {
+    
     public static MovePieces instance;
     Match3 game;
 
@@ -19,7 +20,7 @@ public class MovePieces : MonoBehaviour
     void Start()
     {
         game = GetComponent<Match3>();
-
+        
     }
 
     void Update()
@@ -45,12 +46,12 @@ public class MovePieces : MonoBehaviour
             Vector2 pos = game.getPositionFromPoint(moving.index);
             //50만큼 이동 
             if (!newIndex.Equals(moving.index))
-                pos += Point.mult(new Point(add.x, - add.y), 50).ToVector();
+                pos += Point.mult(new Point(add.x, - add.y), 25).ToVector();
             moving.MovePositionTo(pos);
         }
     }
 
-    public void  MovePiece(NodePiece piece)
+    public void MovePiece(NodePiece piece)
     {
         if(moving != null)  return;
         
@@ -58,9 +59,10 @@ public class MovePieces : MonoBehaviour
         mouseStart = Input.mousePosition;
     }
 
+    //매치되면 실행되는 부분
     public void DropPiece()
     {
-        if (moving == null) return;
+        if (moving == null) return;        
         Debug.Log("Dropped");
         //Flip the pieces around int the game board
         //Reset the piece back to origin spot

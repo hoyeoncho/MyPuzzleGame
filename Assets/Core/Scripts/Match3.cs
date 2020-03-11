@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Match3 : MonoBehaviour
 {
+    ScoreManager scoreMng;
     public ArrayLayout boardLayout;
 
     [Header("UI Elements")]
     public Sprite[] pieces;
     public RectTransform gameBoard;
     public RectTransform killedBoard;
+    public Sprite coin;
 
     [Header("Prefabs")]
     public GameObject nodePiece;
@@ -27,20 +29,17 @@ public class Match3 : MonoBehaviour
 
     System.Random random;
 
-    public void OnMouseDown()
-    {
-        
-    }
 
     void Start()
     {
-        StartGame();  
+        StartGame();
+        scoreMng = FindObjectOfType<ScoreManager>();
     }
-
 
 
     public void Update()
     {
+        
         List<NodePiece> finishedUpdating = new List<NodePiece>();
         for (int i = 0; i < update.Count; i++)
         {
@@ -75,11 +74,14 @@ public class Match3 : MonoBehaviour
             {
                 foreach(Point pnt in connected) // 연결됫을 때 노드피스들 지워주기 
                 {
+                    //점수 더해주는 부분
+                    scoreMng.Score += 10;
                     KillPiece(pnt);
                     Node node = getNodeAtPoint(pnt);
                     NodePiece nodePiece = node.getPiece();
                     if(nodePiece != null)
                     {
+
                         nodePiece.gameObject.SetActive(false);
                         dead.Add(nodePiece);
                     }
